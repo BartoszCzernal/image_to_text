@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to text</title>
+</head>
+<body>
+    <h1>Image to text</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <label for="myfile">Select a file:</label>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" id="myfile" name="myfile">
+        <input type="submit" value="Convert">
+    </form>
+    
+</body>
+</html>
